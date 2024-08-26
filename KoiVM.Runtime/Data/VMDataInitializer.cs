@@ -60,7 +60,10 @@ namespace KoiVM.Runtime.Data {
 					}
 					streamName.Append((char)*mdHdr++);
 					if (*mdHdr == 0)
+					{
+						mdHdr += 4;
 						break;
+					}
 				}
 				if (streamName.ToString() == "#Koi")
 					return AllocateKoi(moduleBase + *(uint*)(mdDir + 8) + offset, len);

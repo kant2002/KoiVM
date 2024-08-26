@@ -13,8 +13,7 @@
     <Reference Include="Confuser.Protections">
       <HintPath>$(ConfuserInstallationDir)\Confuser.Protections.dll</HintPath>
     </Reference>
-    <Reference Include="Confuser.Renamer, Version=0.6.0.50, Culture=neutral, PublicKeyToken=5fbc98a9d8494c64, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Confuser.Renamer">
       <HintPath>$(ConfuserInstallationDir)\Confuser.Renamer.dll</HintPath>
     </Reference>
     <Reference Include="dnlib">

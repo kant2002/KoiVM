@@ -23,9 +23,9 @@ namespace KoiVM.RT {
 			return currentLen;
 		}
 
-		protected override void WriteToImpl(BinaryWriter writer) {
+		protected override void WriteToImpl(DataWriter writer) {
 			foreach (var chunk in chunks)
-				writer.Write(chunk);
+				writer.WriteBytes(chunk);
 		}
 	}
 }

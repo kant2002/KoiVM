@@ -8,7 +8,7 @@ using dnlib.DotNet.Writer;
 namespace KoiVM.RT.Mutation {
 	internal class RuntimeMutator : IModuleWriterListener {
 		ModuleWriterBase rtWriter;
-		MetaData rtMD;
+		Metadata rtMD;
 		VMRuntime rt;
 		RuntimeHelpers helpers;
 		MethodPatcher methodPatcher;
@@ -136,12 +136,12 @@ namespace KoiVM.RT.Mutation {
 
 		void IModuleWriterListener.OnWriterEvent(ModuleWriterBase writer, ModuleWriterEvent evt) {
 			rtWriter = writer;
-			rtMD = writer.MetaData;
+			rtMD = writer.Metadata;
 			if (evt == ModuleWriterEvent.MDEndCreateTables) {
 				MutateMetadata();
 				var request = new RequestKoiEventArgs();
 				RequestKoi(this, request);
-				writer.TheOptions.MetaDataOptions.OtherHeaps.Add(request.Heap);
+				writer.TheOptions.MetadataOptions.CustomHeaps.Add(request.Heap);
 
 				rt.ResetData();
 			}

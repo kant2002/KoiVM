@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net4.0</TargetFramework>
     <Title>KoiVM Confuser</Title>
     <Description>KoiVM Confuser Interface</Description>
     <UseWindowsForms>true</UseWindowsForms>

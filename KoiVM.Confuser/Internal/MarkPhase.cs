@@ -91,7 +91,7 @@ namespace KoiVM.Confuser.Internal {
 				context.CheckCancellation();
 			}
 
-			context.CurrentModuleWriterListener.OnWriterEvent += new Listener {
+			context.CurrentModuleWriterOptions.WriterEvent += new Listener {
 				ctx = context,
 				vr = vr,
 				methods = toProcess,
@@ -106,12 +106,12 @@ namespace KoiVM.Confuser.Internal {
 			public Dictionary<IMemberRef, IMemberRef> refRepl;
 			IModuleWriterListener commitListener = null;
 
-			public void OnWriterEvent(object sender, ModuleWriterListenerEventArgs e) {
+			public void OnWriterEvent(object sender, ModuleWriterEventArgs e) {
 				var writer = (ModuleWriter)sender;
 				if (commitListener != null)
-					commitListener.OnWriterEvent(writer, e.WriterEvent);
+					commitListener.OnWriterEvent(writer, e.Event);
 
-				if (e.WriterEvent == ModuleWriterEvent.MDBeginWriteMethodBodies && methods.ContainsKey(writer.Module)) {
+				if (e.Event == ModuleWriterEvent.MDBeginWriteMethodBodies && methods.ContainsKey(writer.Module)) {
 					ctx.Logger.Debug("Virtualizing methods...");
 
 					vr.ProcessMethods(writer.Module, (num, total) => {
@@ -128,7 +128,7 @@ namespace KoiVM.Confuser.Internal {
 						ctx.CheckCancellation();
 					});
 				}
-				else if (commitListener != null && e.WriterEvent == ModuleWriterEvent.End && vr.ExportDbgInfo) {
+				else if (commitListener != null && e.Event == ModuleWriterEvent.End && vr.ExportDbgInfo) {
 					var mapName = Path.ChangeExtension(writer.Module.Name, "map");
 					var mapPath = Path.GetFullPath(Path.Combine(ctx.OutputDirectory, mapName));
 					Directory.CreateDirectory(ctx.OutputDirectory);

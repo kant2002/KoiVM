@@ -31,3 +31,4 @@ _ReSharper*/
 users*.lst
 GlobalAssemblyInfo.cs
 Temp/
+.vs/

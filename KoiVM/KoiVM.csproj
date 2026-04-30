@@ -12,8 +12,12 @@
     <None Remove="VMIR\Compiler\**" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Confuser.DynCipher" />
-    <PackageReference Include="dnlib" />
+    <Reference Include="Confuser.DynCipher">
+      <HintPath>$(ConfuserInstallationDir)\Confuser.DynCipher.dll</HintPath>
+    </Reference>
+    <Reference Include="dnlib">
+      <HintPath>$(ConfuserInstallationDir)\dnlib.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KoiVM.Runtime\KoiVM.Runtime.csproj" />

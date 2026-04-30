@@ -8,6 +8,7 @@ using Confuser.Protections;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using dnlib.DotNet.Writer;
+using KoiVM.RT;
 using SR = System.Reflection;
 
 namespace KoiVM.Confuser.Internal {

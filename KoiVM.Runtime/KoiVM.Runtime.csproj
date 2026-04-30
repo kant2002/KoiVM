@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net2.0</TargetFramework>
+    <TargetFramework>net4.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Title>KoiVM Runtime</Title>
     <Description>KoiVM runtime library</Description>

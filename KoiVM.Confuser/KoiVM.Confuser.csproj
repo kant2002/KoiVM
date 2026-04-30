@@ -6,18 +6,10 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Confuser.Core">
-      <HintPath>$(ConfuserInstallationDir)\Confuser.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Confuser.Protections">
-      <HintPath>$(ConfuserInstallationDir)\Confuser.Protections.dll</HintPath>
-    </Reference>
-    <Reference Include="Confuser.Renamer">
-      <HintPath>$(ConfuserInstallationDir)\Confuser.Renamer.dll</HintPath>
-    </Reference>
-    <Reference Include="dnlib">
-      <HintPath>$(ConfuserInstallationDir)\dnlib.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Confuser.Core" />
+    <PackageReference Include="Confuser.Protections" />
+    <PackageReference Include="Confuser.Renamer" />
+    <PackageReference Include="dnlib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KoiVM.Runtime\KoiVM.Runtime.csproj" />

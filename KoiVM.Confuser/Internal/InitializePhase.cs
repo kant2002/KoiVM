@@ -72,11 +72,11 @@ namespace KoiVM.Confuser.Internal {
 			ModuleDefMD rtModule;
 			Stream resStream = typeof(Virtualizer).Assembly.GetManifestResourceStream("KoiVM.Runtime.dll");
 			if (resStream != null) {
-				rtModule = ModuleDefMD.Load(resStream, context.Resolver.DefaultModuleContext);
+				rtModule = ModuleDefMD.Load(resStream, context.DefaultModuleContext);
 			}
 			else {
 				var rtPath = Path.Combine(koiDir, "KoiVM.Runtime.dll");
-				rtModule = ModuleDefMD.Load(rtPath, context.Resolver.DefaultModuleContext);
+				rtModule = ModuleDefMD.Load(rtPath, context.DefaultModuleContext);
 			}
 			rtModule.Assembly.Name = rtName;
 			rtModule.Name = rtName + ".dll";

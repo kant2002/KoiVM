@@ -63,7 +63,7 @@ namespace KoiVM {
 			} while (value != 0);
 		}
 
-		public static TypeSig ResolveType(this GenericArguments genericArgs, TypeSig typeSig) {
+		internal static TypeSig ResolveType(this GenericArguments genericArgs, TypeSig typeSig) {
 			switch (typeSig.ElementType) {
 				case ElementType.Ptr:
 					return new PtrSig(genericArgs.ResolveType(typeSig.Next));
